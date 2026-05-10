@@ -59,7 +59,7 @@
                 SemanticProperties.Description="Student phone number"
                 Text="050-1234567"
                 TextColor="MidnightBlue" />
-
+            <Button Text="עדכן תאריך לידה" />
         </VerticalStackLayout>
     </ScrollView>
 

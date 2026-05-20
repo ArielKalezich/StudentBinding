@@ -6,7 +6,6 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="30,0" Spacing="25">
-
             <!--  תמונת פרופיל  -->
             <Image
                 Aspect="AspectFit"

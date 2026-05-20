@@ -12,7 +12,7 @@
                 Aspect="AspectFit"
                 HeightRequest="185"
                 SemanticProperties.Description="Student profile image"
-                Source="dotnet_bot.png" />
+                Source="{Binding Image}" />
 
             <!--  שם התלמיד  -->
             <Label
@@ -21,7 +21,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 SemanticProperties.HeadingLevel="Level1"
-                Text="ישראל ישראלי"
+                Text="{Binding Name}"
                 TextColor="MidnightBlue" />
 
             <!--  גיל  -->
@@ -31,12 +31,13 @@
                 HorizontalTextAlignment="Center"
                 SemanticProperties.Description="Student age"
                 SemanticProperties.HeadingLevel="Level2"
-                Text="16"
+                Text="{Binding Age}"
                 TextColor="MidnightBlue" />
 
             <!--  תאריך לידה  -->
             <DatePicker
-                Date="01/01/2000"
+                x:Name="BirthDatePicker"
+                Date="{Binding BirthDate, Mode=OneWay}"
                 FontSize="24"
                 HorizontalOptions="Center"
                 SemanticProperties.Description="Student birth date"
@@ -48,7 +49,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 SemanticProperties.Description="Student email address"
-                Text="joe@gmail.com"
+                Text="{Binding Email}"
                 TextColor="MidnightBlue" />
 
             <!--  טלפון  -->
@@ -57,9 +58,14 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 SemanticProperties.Description="Student phone number"
-                Text="050-1234567"
+                Text="{Binding Phone}"
                 TextColor="MidnightBlue" />
-            <Button Text="עדכן תאריך לידה" />
+            <Button Text="עדכן תאריך לידה"
+                    Clicked="UpdateBirthDateOnClick"/>
+            <Button
+     Clicked="StudentChangeOnClick"
+     Text="שנה נתוני סטודנט"
+     />
         </VerticalStackLayout>
     </ScrollView>
 

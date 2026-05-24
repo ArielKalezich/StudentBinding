@@ -7,7 +7,20 @@ namespace StudentBinding
     {
         private Student stu;
         private Student stu2;
-        private Student CurrentStudent { get; set; }
+        private Student? currentStudent;
+        public Student? CurrentStudent
+        {
+            get => currentStudent;
+            set
+            {
+                if (currentStudent != value)
+                {
+                    currentStudent = value;
+                    OnPropertyChanged();
+
+                }
+            }
+        }
         public MainPage()
         {
             InitializeComponent();
@@ -29,7 +42,7 @@ namespace StudentBinding
                 PhoneNum = "050-9286541"
             };
             CurrentStudent = stu;
-            this.BindingContext = CurrentStudent;
+            this.BindingContext = this;
 
         }
         private void StudentChangeOnClick(object sender, EventArgs e)
@@ -39,18 +52,16 @@ namespace StudentBinding
                 CurrentStudent = stu2;
 
             }
-            else if (CurrentStudent == stu2)
+            else 
             {
                 CurrentStudent = stu;
 
             }
-            this.BindingContext = CurrentStudent;
+           
+        
         }
-        private void UpdateBirthDateOnClick(object sender, EventArgs e)
-        {
-            CurrentStudent.BirthDate = BirthDatePicker.Date;
         }
     }
-}
+
 
 

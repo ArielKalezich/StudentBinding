@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace StudentBinding.Models
 {
-    class Student : ObservableObject
+   public partial class Student : ObservableObject
     {
-        private string name;
-        public string Name
+        private string? name;
+        public string? Name
         {
             get { return name; }
 
@@ -23,8 +23,8 @@ namespace StudentBinding.Models
             }
         }
 
-        private string image;
-        public string Image
+        private string? image;
+        public string? Image
         {
             get { return image; }
             set
@@ -32,14 +32,14 @@ namespace StudentBinding.Models
                 if (image != value)
                 {
                     image = value;
-                    OnPropertyChanged("Student");
+                    OnPropertyChanged("Image");
 
                 }
             }
         }
 
-        private DateTime birthdate;
-        public DateTime BirthDate { get { return birthdate; } 
+        private DateTime? birthdate;
+        public DateTime? BirthDate { get { return birthdate; } 
             set
             {
                 if (birthdate != value)
@@ -60,12 +60,17 @@ namespace StudentBinding.Models
 
         public int Age
         {
-            get => (int)(CurrentDate - BirthDate).TotalDays
-        / 365;
+            get
+            {
+                if(BirthDate!=null)
+                    return (int)(CurrentDate -(DateTime) BirthDate).TotalDays/ 365;
+                return 0;
+            }
+
         }
 
-        private string email;
-        public string Email
+        private string? email;
+        public string? Email
         {
             get { return email; }
             set
@@ -73,13 +78,13 @@ namespace StudentBinding.Models
                 if (email != value)
                 {
                     email = value;
-                    OnPropertyChanged("Email");
+                    OnPropertyChanged();
 
                 }
             }
         }
-        private string phonenum;
-        public string PhoneNum
+        private string? phonenum;
+        public string? PhoneNum
         {
             get { return phonenum; }
             set
@@ -87,7 +92,7 @@ namespace StudentBinding.Models
                 if (phonenum != value)
                 {
                     phonenum = value;
-                    OnPropertyChanged("PhoneNum");
+                    OnPropertyChanged();
 
                 }
             }

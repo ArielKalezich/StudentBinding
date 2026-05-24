@@ -2,7 +2,11 @@
 <ContentPage
     x:Class="StudentBinding.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:StudentBinding"
+    xmlns:models="clr-namespace:StudentBinding.Models"
+    x:DataType="local:MainPage"
+    >
 
     <ScrollView>
         <VerticalStackLayout Padding="30,0" Spacing="25">
@@ -11,7 +15,7 @@
                 Aspect="AspectFit"
                 HeightRequest="185"
                 SemanticProperties.Description="Student profile image"
-                Source="{Binding Image}" />
+                Source="{Binding CurrentStudent.Image}" />
 
             <!--  שם התלמיד  -->
             <Label
@@ -20,7 +24,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 SemanticProperties.HeadingLevel="Level1"
-                Text="{Binding Name}"
+                Text="{Binding CurrentStudent.Name}"
                 TextColor="MidnightBlue" />
 
             <!--  גיל  -->
@@ -30,13 +34,13 @@
                 HorizontalTextAlignment="Center"
                 SemanticProperties.Description="Student age"
                 SemanticProperties.HeadingLevel="Level2"
-                Text="{Binding Age}"
+                Text="{Binding CurrentStudent.Age}"
                 TextColor="MidnightBlue" />
 
             <!--  תאריך לידה  -->
             <DatePicker
                 x:Name="BirthDatePicker"
-                Date="{Binding BirthDate, Mode=OneWay}"
+                Date="{Binding CurrentStudent.BirthDate}"
                 FontSize="24"
                 HorizontalOptions="Center"
                 SemanticProperties.Description="Student birth date"
@@ -48,7 +52,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 SemanticProperties.Description="Student email address"
-                Text="{Binding Email}"
+                Text="{Binding CurrentStudent.Email}"
                 TextColor="MidnightBlue" />
 
             <!--  טלפון  -->
@@ -57,10 +61,8 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 SemanticProperties.Description="Student phone number"
-                Text="{Binding Phone}"
+                Text="{Binding  CurrentStudent.PhoneNum}"
                 TextColor="MidnightBlue" />
-            <Button Text="עדכן תאריך לידה"
-                    Clicked="UpdateBirthDateOnClick"/>
             <Button
      Clicked="StudentChangeOnClick"
      Text="שנה נתוני סטודנט"
